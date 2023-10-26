@@ -1,0 +1,43 @@
+---
+title: "explanation_squared_transformation"
+output: html_document
+date: "2023-10-26"
+---
+
+# Guide: Squared_transformation
+This document acts as a guide for the function found in the Squared_Transformation R script also found in this public repository.
+
+**Function**
+```{r}
+squared_data <- function(data,power) {
+  if (power == "square") {
+    # Square each element of the vector
+    squared_data <- data^2
+    return(squared_data)
+  } else {
+    return("Not available")
+  }
+}
+```
+
+*Explanation*
+The function squared_data takes two parameters: data and power. 
+It is designed to square the desired data based on the value of power.
+It only works if the power desired is "square", otherwise it does not work. 
+For example, if you want to cube this data, the function will print "Not available".
+
+- Example
+```{r}
+data(mtcars) # Load built-in R dataset mtcars 
+
+head(mtcars) # Checks the first few rows of the dataset
+
+squared_cyl <- squared_data(mtcars$cyl,"square") # Apply the function to the 'cyl' column
+
+# Print the result
+print(squared_cyl)
+
+squared_cyl <- squared_data(mtcars$cyl,"cube") # Apply the function to the 'cyl' column
+# Print the result
+print(squared_cyl)
+```
